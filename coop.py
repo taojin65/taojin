@@ -1,6 +1,10 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*- 
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 from collections import defaultdict
 
 a = []
@@ -13,16 +17,19 @@ with open ('test.csv', 'r') as f:
 for i, j in a:
 	dict1[i].append(j)
 
+for k ,v in dict1.items():
+	print '%s\t%s' % (k, v)
+
+'''
 b = []
 for k in dict1:
-	v = '\t'.join([k, str(dict1[k]).decode('gbk').encode('utf-8'), '\n'])
+	v = '\t'.join([k, str(dict1[k]), '\n'])
 	b.append(v)
-	print b
 
 with open('test_res.csv', 'w') as res:
 	res.writelines(b)
 	res.close()
 	f.close()
-
+'''
 
 
